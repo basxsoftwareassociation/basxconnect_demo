@@ -1,0 +1,8 @@
+db.sqlite3
+.venv/
+woosh_index/
+static/
+media/
+*.mo
+local.py
+__pycache__
