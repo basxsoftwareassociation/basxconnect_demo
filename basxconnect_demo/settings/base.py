@@ -23,6 +23,7 @@ ALLOWED_HOSTS = []
 
 # BREAD_DEPENDENCIES are imported in the start import at the top
 INSTALLED_APPS = [
+    "django.contrib.admin",
     # "customization.apps.CustomizationConfig",  # custom config should be the first entry in the list
     "basxconnect.core.apps.CoreConfig",
 ] + BREAD_DEPENDENCIES
