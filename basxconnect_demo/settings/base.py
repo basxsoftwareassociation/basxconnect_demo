@@ -22,11 +22,15 @@ SECRET_KEY = "l+#35mz2=81hcda7z)$+_4!e^azx40mo83d-s1%0bc4e2jwo@2"
 ALLOWED_HOSTS = []
 
 # BREAD_DEPENDENCIES are imported in the start import at the top
-INSTALLED_APPS = [
+INSTALLED_APPS = (
+  [
     "django.contrib.admin",
     # "customization.apps.CustomizationConfig",  # custom config should be the first entry in the list
     "basxconnect.core.apps.CoreConfig",
-] + BREAD_DEPENDENCIES
+  ]
+    + BREAD_DEPENDENCIES
+    + []  # this needs to be at the end if we override layouts in the bread layout registry
+)
 
 ROOT_URLCONF = "basxconnect_demo.urls"
 
