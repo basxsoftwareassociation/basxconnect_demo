@@ -12,7 +12,7 @@ quickstart: debian_packages create_venv pip_packages create_db create_superuser 
 
 debian_packages:
 	sudo apt update
-	sudo apt install make python3-venv python3-dev
+	sudo apt install make python3-venv python3-dev -y
 
 create_superuser:
 	${VENV} echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python manage.py shell
@@ -34,7 +34,7 @@ compile_scss:
 	echo OVERRIDE_STYLESHEET = '"'/static/CACHE/css/$$(\ls static/CACHE/css)'"' >> basxconnect_demo/settings/local.py
 
 build_searchindex:
-	${VENV} python manage.py rebuild_index
+	${VENV} python manage.py rebuild_index --noinput
 
 
 runserver:
