@@ -1,7 +1,7 @@
 # This target can be used to regenerate the main css file
 # This can be used for a development environment in order to prevent re-compiling the whole carbon-design scss on every request
 #
-VENV := '. .venv/bin/activate &&'
+VENV := . .venv/bin/activate &&
 
 quickstart: debian_packages create_venv pip_packages create_db create_superuser compile_scss
 
@@ -30,5 +30,5 @@ compile_scss:
 
 runserver:
 	echo IP addresses
-	ip addr | awk '/inet / {print $2}'
+	ip addr | awk '/inet / {print $$2}'
 	${VENV} python manage.py runserver 0.0.0.0:8000
