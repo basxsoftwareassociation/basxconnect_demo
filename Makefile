@@ -3,7 +3,12 @@
 #
 VENV := . .venv/bin/activate &&
 
-quickstart: debian_packages create_venv pip_packages create_db create_superuser compile_scss
+quickstart: debian_packages create_venv pip_packages create_db create_superuser compile_scss build_searchindex
+	@echo 
+	@echo =====================================================================================
+	@echo Installation has finished successfully
+	@echo Run 'make runserver' in order to start the server and access it through one of the following IP addresses
+	@ip addr | awk '/inet / {print $$2}'
 
 debian_packages:
 	sudo apt update
@@ -28,7 +33,9 @@ compile_scss:
 	sed -i -e '/OVERRIDE_STYLESHEET/d' basxconnect_demo/settings/local.py
 	echo OVERRIDE_STYLESHEET = '"'/static/CACHE/css/$$(\ls static/CACHE/css)'"' >> basxconnect_demo/settings/local.py
 
+build_searchindex:
+	${VENV} python manage.py rebuild_index
+
+
 runserver:
-	echo IP addresses
-	ip addr | awk '/inet / {print $$2}'
 	${VENV} python manage.py runserver 0.0.0.0:8000
