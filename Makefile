@@ -3,5 +3,6 @@
 compile_scss:
 	rm -rf static/CACHE/css
 	. .venv/bin/activate && ./manage.py compress -f
+	touch basxconnect_peacewatch/settings/local.py
 	sed -i -e '/OVERRIDE_STYLESHEET/d' basxconnect_peacewatch/settings/local.py
 	echo OVERRIDE_STYLESHEET = '"'/static/CACHE/css/$$(\ls static/CACHE/css)'"' >> basxconnect_peacewatch/settings/local.py
