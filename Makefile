@@ -7,7 +7,7 @@ quickstart: debian_packages create_venv pip_packages create_db create_superuser 
 	@echo 
 	@echo =====================================================================================
 	@echo Installation has finished successfully
-	@echo Run 'make runserver' in order to start the server and access it through one of the following IP addresses
+	@echo Run '"'make runserver'"' in order to start the server and access it through one of the following IP addresses
 	@ip addr | awk '/inet / {print $$2}'
 
 debian_packages:
