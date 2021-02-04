@@ -15,7 +15,7 @@ debian_packages:
 	sudo apt install make python3-venv python3-dev -y
 
 create_superuser:
-	${VENV} echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python manage.py shell
+	${VENV} echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(is_superuser=True).exists() or User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python manage.py shell
 
 pip_packages:
 	${VENV} pip install -r requirements.txt
