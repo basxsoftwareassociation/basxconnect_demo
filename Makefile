@@ -3,7 +3,7 @@
 #
 VENV := . .venv/bin/activate &&
 
-quickstart: debian_packages create_venv pip_packages create_db create_superuser compile_scss build_searchindex
+quickstart_debian: debian_packages create_venv pip_packages create_db create_superuser compile_scss build_searchindex
 	@echo 
 	@echo =====================================================================================
 	@echo Installation has finished successfully
