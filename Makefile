@@ -37,6 +37,7 @@ create_venv:
 
 create_db:
 	${VENV} python manage.py migrate
+	${VENV} python manage.py compilemessages
 
 compile_scss:
 	rm -rf static/CACHE/css
