@@ -13,7 +13,18 @@ quickstart_debian: debian_packages create_venv pip_packages create_db create_sup
 
 debian_packages:
 	sudo apt update
-	sudo apt install make python3-venv python3-dev -y
+	sudo apt install python3-venv python3-dev -y
+	
+quickstart_fedora: fedora_packages create_venv pip_packages create_db create_superuser compile_scss build_searchindex
+	@echo 
+	@echo =====================================================================================
+	@echo Installation has finished successfully
+	@echo Run '"'make runserver'"' in order to start the server and access it through one of the following IP addresses
+	@ip addr | sed 's/\/[0-9]*//' | awk '/inet / {print "http://" $$2 ":8000/"}'
+	@echo Login user is '"'admin'"' password is '"'admin'"'
+	
+fedora_packages:
+	dnf install python3-devel
 
 create_superuser:
 	${VENV} echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(is_superuser=True).exists() or User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python manage.py shell
