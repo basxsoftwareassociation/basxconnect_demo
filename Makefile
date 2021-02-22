@@ -24,7 +24,7 @@ quickstart_fedora: fedora_packages create_venv pip_packages create_db create_sup
 	@echo Login user is '"'admin'"' password is '"'admin'"'
 	
 fedora_packages:
-	dnf install python3-devel
+	sudo dnf install python3-devel
 
 create_superuser:
 	${VENV} echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(is_superuser=True).exists() or User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python manage.py shell
