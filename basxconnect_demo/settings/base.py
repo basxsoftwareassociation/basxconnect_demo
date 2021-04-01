@@ -29,7 +29,7 @@ INSTALLED_APPS = (
     "basxconnect.core.apps.CoreConfig",
   ]
     + BREAD_DEPENDENCIES
-    + []  # this needs to be at the end if we override layouts in the bread layout registry
+    + ["demoapp.apps.DemoAppConfig"]  # this needs to be at the end if we override layouts in the bread layout registry
 )
 
 ROOT_URLCONF = "basxconnect_demo.urls"
