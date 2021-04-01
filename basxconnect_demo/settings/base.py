@@ -23,14 +23,17 @@ ALLOWED_HOSTS = []
 
 # BREAD_DEPENDENCIES are imported in the start import at the top
 INSTALLED_APPS = (
-  [
-    "django.contrib.admin",
-    # "customization.apps.CustomizationConfig",  # custom config should be the first entry in the list
-    "basxconnect.core.apps.CoreConfig",
-  ]
+    [
+        "basxconnect.core.apps.CoreConfig",
+        "bread.contrib.reports.apps.ReportsConfig",
+    ]
     + BREAD_DEPENDENCIES
     + []  # this needs to be at the end if we override layouts in the bread layout registry
 )
+TEMPLATES[0]["OPTIONS"]["context_processors"].append(
+    "basxconnect_demo.context_processors.customcontext"
+)
+
 
 ROOT_URLCONF = "basxconnect_demo.urls"
 
@@ -60,7 +63,11 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 
 COUNTRIES_FIRST = ["ch", "de", "fr", "uk"]
 
-BRANDING = {
-    "platform": "basxConnect",
-    "company": "Demo",
+BASXCONNECT = {
+    "PREFERRED_LANGUAGES": (
+        "de",
+        "fr",
+        "en",
+    ),
+    "PREFERRED_CURRENCIES": ("CHF", "EUR"),
 }
