@@ -1,7 +1,6 @@
 from bread.utils.urls import protectedMedia
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 from django.views.generic import RedirectView
@@ -13,8 +12,7 @@ urlpatterns = [
     path("", include("demoapp.urls")),
     path("bread/", include("bread.urls")),
     path("basxconnect/", include("basxconnect.core.urls")),
-    #  django-admin urls
-    path("admin/", admin.site.urls),
+    path("reports/", include("bread.contrib.reports.urls")),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
