@@ -12,31 +12,23 @@ Installation
 
 Have a look at https://get.basxconnect.solidcharity.com/
 
-Or do these manual steps:
+Or do the following steps for a quick development setup:
 
 for Fedora:
 
 ```
-dnf install perl-Image-ExifTool graphviz-devel python3-devel gcc git
+sudo dnf install git make
+git clone https://github.com/basxsoftwareassociation/basxconnect_demo && cd basxconnect_demo
+make quickstart_fedora
+make runserver
 ```
 
 for Debian:
 ```
-apt-get install libimage-exiftool-perl libgraphviz-dev python3-venv python3-dev virtualenv gcc git pkg-config
-```
-
-Now get the code and setup the development environment:
-
-```
-git clone https://github.com/basxsoftwareassociation/basxconnect_demo.git
-cd basxconnect_demo
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py createsuperuser
-python manage.py compilemessages
-python manage.py runserver
+sudo apt-get install git make
+git clone https://github.com/basxsoftwareassociation/basxconnect_demo && cd basxconnect_demo
+make quickstart_debian
+make runserver
 ```
 
 Now you can visit this link: http://127.0.0.1:8000/
