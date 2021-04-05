@@ -28,7 +28,7 @@ INSTALLED_APPS = (
         "bread.contrib.reports.apps.ReportsConfig",
     ]
     + BREAD_DEPENDENCIES
-    + []  # this needs to be at the end if we override layouts in the bread layout registry
+    + ["demoapp.apps.DemoAppConfig"]  # this needs to be at the end if we override layouts in the bread layout registry
 )
 TEMPLATES[0]["OPTIONS"]["context_processors"].append(
     "basxconnect_demo.context_processors.customcontext"
