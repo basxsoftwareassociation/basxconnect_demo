@@ -31,7 +31,7 @@ INSTALLED_APPS = (
     + ["demoapp.apps.DemoAppConfig"]  # this needs to be at the end if we override layouts in the bread layout registry
 )
 TEMPLATES[0]["OPTIONS"]["context_processors"].append(
-    "basxconnect_demo.context_processors.customcontext"
+    "basxconnect.core.context_processors.basxconnect_core"
 )
 
 
