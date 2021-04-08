@@ -9,6 +9,7 @@ urlpatterns = [
     # redirect to home page
     path("", RedirectView.as_view(pattern_name="core.person.browse")),
     #  all basx-bread urls
+    path("", include("demoapp.urls")),
     path("bread/", include("bread.urls")),
     path("basxconnect/", include("basxconnect.core.urls")),
     path("reports/", include("bread.contrib.reports.urls")),
