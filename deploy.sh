@@ -7,8 +7,8 @@ git pull
 
 pip install --upgrade -r requirements.txt
 ./manage.py migrate
-./manage.py collectstatic --noinput
-./manage.py compress --force
+./manage.py collectstatic --settings=basxconnect_demo.settings.production --noinput
+./manage.py compress --settings=basxconnect_demo.settings.production --force
 
 deactivate
 
