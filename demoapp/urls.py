@@ -10,4 +10,4 @@ class DemoLoginView(BreadLoginView):
         return ret
 
 
-urlpatterns = [path("accounts/login", DemoLoginView.as_view(), name="login")]
+urlpatterns = [path("bread/accounts/login/", DemoLoginView.as_view(), name="login")]
