@@ -29,12 +29,12 @@ create_venv:
 pip_packages:
 	${VENV} pip install -r requirements.txt
 
-create_venv:
-	python3 -m venv .venv
-
 create_db:
 	${VENV} python manage.py migrate
 	${VENV} python manage.py compilemessages
+
+create_superuser:
+	${VENV} echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(is_superuser=True).exists() or User.objects.create_superuser('demo', 'demo@example.com', 'connectdemo')" | python manage.py shell
 
 compile_scss:
 	rm -rf static/CACHE/css
