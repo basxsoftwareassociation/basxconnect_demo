@@ -4,31 +4,27 @@
 VENV := . .venv/bin/activate &&
 INSTANCE := basxconnect_demo
 
-quickstart_debian: debian_packages create_venv pip_packages create_db create_superuser compile_scss build_searchindex
-	@echo 
-	@echo =====================================================================================
-	@echo Installation has finished successfully
-	@echo Run '"'make runserver'"' in order to start the server and access it through one of the following IP addresses
-	@ip addr | sed 's/\/[0-9]*//' | awk '/inet / {print "http://" $$2 ":8000/"}'
-	@echo Login user is '"'demo'"' password is '"'connectdemo'"'
+quickstart_debian: debian_packages quickstart
 
 debian_packages:
 	sudo apt update
 	sudo apt install python3-venv python3-dev -y
 	
-quickstart_fedora: fedora_packages create_venv pip_packages create_db create_superuser compile_scss build_searchindex
+quickstart_fedora: fedora_packages quickstart
+
+fedora_packages:
+	(rpm -qa | grep python3-devel) || sudo dnf install python3-devel
+
+quickstart: create_venv pip_packages create_db create_superuser compile_scss build_searchindex
 	@echo 
 	@echo =====================================================================================
 	@echo Installation has finished successfully
 	@echo Run '"'make runserver'"' in order to start the server and access it through one of the following IP addresses
 	@ip addr | sed 's/\/[0-9]*//' | awk '/inet / {print "http://" $$2 ":8000/"}'
 	@echo Login user is '"'demo'"' password is '"'connectdemo'"'
-	
-fedora_packages:
-	(rpm -qa | grep python3-devel) || sudo dnf install python3-devel
 
-create_superuser:
-	${VENV} echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(is_superuser=True).exists() or User.objects.create_superuser('demo', 'demo@example.com', 'connectdemo')" | python manage.py shell
+create_venv:
+	python3 -m venv .venv
 
 pip_packages:
 	${VENV} pip install -r requirements.txt
