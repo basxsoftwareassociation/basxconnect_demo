@@ -25,10 +25,13 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     [
         "basxconnect.core.apps.CoreConfig",
+        "django.contrib.admin",
         "bread.contrib.reports.apps.ReportsConfig",
     ]
     + BREAD_DEPENDENCIES
-    + ["demoapp.apps.DemoAppConfig"]  # this needs to be at the end if we override layouts in the bread layout registry
+    + [
+        "demoapp.apps.DemoAppConfig"
+    ]  # this needs to be at the end if we override layouts in the bread layout registry
 )
 TEMPLATES[0]["OPTIONS"]["context_processors"].append(
     "basxconnect.core.context_processors.basxconnect_core"
