@@ -1,6 +1,7 @@
 from bread.utils.urls import protectedMedia
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 from django.views.generic import RedirectView
@@ -8,6 +9,7 @@ from django.views.generic import RedirectView
 urlpatterns = [
     # redirect to home page
     path("", RedirectView.as_view(pattern_name="core.person.browse")),
+    path("admin/", admin.site.urls),
     #  all basx-bread urls
     path("", include("demoapp.urls")),
     path("bread/", include("bread.urls")),
