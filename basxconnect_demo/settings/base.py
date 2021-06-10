@@ -26,6 +26,7 @@ INSTALLED_APPS = (
     [
         "basxconnect.core.apps.CoreConfig",
         "django.contrib.admin",
+        "basxconnect.contributions.apps.ContributionsConfig",
         "bread.contrib.reports.apps.ReportsConfig",
     ]
     + BREAD_DEPENDENCIES
