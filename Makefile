@@ -36,18 +36,8 @@ create_db:
 create_superuser:
 	${VENV} echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(is_superuser=True).exists() or User.objects.create_superuser('demo', 'demo@example.com', 'connectdemo')" | python manage.py shell
 
-compile_scss:
-	rm -rf static/CACHE/css
-	${VENV} python manage.py collectstatic --noinput
-	${VENV} python manage.py compress --settings basxconnect_demo.settings.production
-	touch ${INSTANCE}/settings/local.py
-	sed -i -e '/OVERRIDE_STYLESHEET/d' ${INSTANCE}/settings/local.py
-	for i in $$(\ls static/CACHE/css); do cat static/CACHE/css/$$i >> static/CACHE/css/precompiled.css ; done
-	echo OVERRIDE_STYLESHEET = '"'/static/CACHE/css/precompiled.css'"' >> ${INSTANCE}/settings/local.py
-
 build_searchindex:
 	${VENV} python manage.py rebuild_index --noinput
-
 
 runserver:
 	${VENV} python manage.py runserver 0.0.0.0:8000

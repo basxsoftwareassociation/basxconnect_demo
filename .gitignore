@@ -6,3 +6,4 @@ media/
 *.mo
 local.py
 __pycache__
+.hypothesis/
