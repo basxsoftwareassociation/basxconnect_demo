@@ -41,3 +41,7 @@ build_searchindex:
 
 runserver:
 	${VENV} python manage.py runserver 0.0.0.0:8000
+
+tests:
+	${VENV} python manage.py test --settings=basxconnect.core.tests.settings basxconnect.core
+
