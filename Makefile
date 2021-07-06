@@ -1,6 +1,3 @@
-# This target can be used to regenerate the main css file
-# This can be used for a development environment in order to prevent re-compiling the whole carbon-design scss on every request
-#
 VENV := . .venv/bin/activate &&
 INSTANCE := basxconnect_demo
 
@@ -15,7 +12,7 @@ quickstart_fedora: fedora_packages quickstart
 fedora_packages:
 	(rpm -qa | grep python3-devel) || sudo dnf install python3-devel
 
-quickstart: create_venv pip_packages create_db create_superuser compile_scss build_searchindex
+quickstart: create_venv pip_packages create_db create_superuser build_searchindex
 	@echo 
 	@echo =====================================================================================
 	@echo Installation has finished successfully
@@ -44,4 +41,3 @@ runserver:
 
 tests:
 	${VENV} python manage.py test --settings=basxconnect.core.tests.settings basxconnect.core
-
