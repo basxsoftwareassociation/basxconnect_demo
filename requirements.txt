@@ -1,4 +1,3 @@
-git+https://github.com/basxsoftwareassociation/htmlgenerator.git
-git+https://github.com/basxsoftwareassociation/bread.git@main
-git+https://github.com/basxsoftwareassociation/basxconnect.git@main
-# technically one entry "basxconnect" would be enough in order to use released packages, however, we currently want to use bleeding-edge versions
+git+https://github.com/basxsoftwareassociation/htmlgenerator.git#egg=htmlgenerator
+git+https://github.com/basxsoftwareassociation/bread.git@main#egg=basx-bread
+git+https://github.com/basxsoftwareassociation/basxconnect.git@main#egg=basxconnecg
