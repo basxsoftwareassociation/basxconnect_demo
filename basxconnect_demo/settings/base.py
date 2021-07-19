@@ -5,6 +5,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import sys
 
 from bread.settings.required import *
 
@@ -15,7 +16,9 @@ from bread.settings.required import *
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "basxconnect_demo.settings.dev")
-BASE_DIR = os.environ.get("DJANGO_BASE_DIR", os.path.dirname(PROJECT_DIR))
+BASE_DIR = os.environ.get(
+    "DJANGO_BASE_DIR", os.path.dirname(os.path.abspath(sys.argv[0]))
+)
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
