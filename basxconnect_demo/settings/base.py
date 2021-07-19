@@ -30,9 +30,7 @@ INSTALLED_APPS = (
         "bread.contrib.reports.apps.ReportsConfig",
     ]
     + BREAD_DEPENDENCIES
-    + [
-        "demoapp.apps.DemoAppConfig"
-    ]  # this needs to be at the end if we override layouts in the bread layout registry
+    + ["demoapp.apps.DemoAppConfig", "django_pyuwsgi"]
 )
 TEMPLATES[0]["OPTIONS"]["context_processors"].append(
     "basxconnect.core.context_processors.basxconnect_core"
@@ -75,3 +73,15 @@ BASXCONNECT = {
     ),
     "PREFERRED_CURRENCIES": ("CHF", "EUR"),
 }
+PYUWSGI_ARGS = [
+    "--strict",
+    "--need-app",
+    "--module",
+    ":".join(WSGI_APPLICATION.rsplit(".", 1)),
+    "--vacuum",
+    "--auto-procname",
+    "--static-map",
+    "=".join([STATIC_URL.rstrip("/"), STATIC_ROOT]),
+    "--static-expires",
+    "/* 7776000",
+]
