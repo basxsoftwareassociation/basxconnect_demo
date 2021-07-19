@@ -35,7 +35,7 @@ INSTALLED_APPS = (
         "bread.contrib.reports.apps.ReportsConfig",
     ]
     + BREAD_DEPENDENCIES
-    + ["demoapp.apps.DemoAppConfig", "django_pyuwsgi"]
+    + ["demoapp.apps.DemoAppConfig"]
 )
 TEMPLATES[0]["OPTIONS"]["context_processors"].append(
     "basxconnect.core.context_processors.basxconnect_core"
