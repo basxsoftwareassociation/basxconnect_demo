@@ -15,7 +15,7 @@ def main():
         django.setup()
         from django.conf import settings
 
-        pyuwsgi.run(*sys.argv[1:], *settings.PYUWSGI_ARGS)
+        pyuwsgi.run(*sys.argv[2:], *settings.PYUWSGI_ARGS)
     else:
         from django.core.management import execute_from_command_line
 
