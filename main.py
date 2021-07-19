@@ -12,9 +12,9 @@ def main():
     if "manage" in sys.argv[1:2]:
         from django.core.management import execute_from_command_line
 
-        execute_from_command_line(sys.argv)
+        execute_from_command_line(sys.argv[1:])
     else:
-        pyuwsgi.run(*sys.argv[2:], "--strict", "--need-app", "--module", "wsgi")
+        pyuwsgi.run(*sys.argv[1:], "--strict", "--need-app", "--module", "wsgi")
 
 
 if __name__ == "__main__":
