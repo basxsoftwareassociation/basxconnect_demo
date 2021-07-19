@@ -78,15 +78,3 @@ BASXCONNECT = {
     ),
     "PREFERRED_CURRENCIES": ("CHF", "EUR"),
 }
-PYUWSGI_ARGS = [
-    "--strict",
-    "--need-app",
-    "--module",
-    ":".join(WSGI_APPLICATION.rsplit(".", 1)),
-    "--vacuum",
-    "--auto-procname",
-    "--static-map",
-    "=".join([STATIC_URL.rstrip("/"), STATIC_ROOT]),
-    "--static-expires",
-    "/* 7776000",
-]
