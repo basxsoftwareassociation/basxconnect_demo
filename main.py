@@ -14,7 +14,8 @@ def main():
 
         execute_from_command_line(sys.argv[1:])
     else:
-        pyuwsgi.run("--strict", "--need-app", "--module", "wsgi", *sys.argv[1:])
+        # pyuwsgi.run("--strict", "--need-app", "--module", "wsgi", *sys.argv[1:])
+        pyuwsgi.run(*sys.argv[1:])
 
 
 if __name__ == "__main__":
