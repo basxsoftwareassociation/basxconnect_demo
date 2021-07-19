@@ -1,4 +1,4 @@
-from .base import *
+from .base import *  # noqa
 
 DEBUG = False
 SECURE_CONTENT_TYPE_NOSNIFF = True
@@ -15,6 +15,24 @@ COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
 try:
-    from .local import *
+    from .local import *  # noqa
 except ImportError:
     pass
+
+# this is used for easier settings configuration
+# in prodcution environments
+try:
+    from instance_settings import *  # noqa
+except ImportError as e:
+    print(
+        """You must have a file instance_settings.py somewhere in your python path.
+The file must contain instance-specific django settings. It is recommended to set
+at least the following settingg:
+
+SECRET_KEY = "<random keys>"
+ALLOWED_HOSTS = ["<domainname of instance>"]
+ADMINS = [("Admin", "<admin-email-address>"), ]
+
+"""
+    )
+    raise e

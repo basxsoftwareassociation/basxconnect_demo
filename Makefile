@@ -41,3 +41,10 @@ runserver:
 
 tests:
 	${VENV} python manage.py test --settings=basxconnect.core.tests.settings basxconnect.core
+
+package:
+	rm -rf dist
+	git clone . dist
+	pip install -r dist/requirements.txt --target dist
+	cp main.py dist/main.py
+	shiv --site-packages dist --compressed -p '/usr/bin/env python3' -o dist/$$(basename $$(realpath .)).pyz -e main.main

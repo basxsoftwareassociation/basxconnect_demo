@@ -7,3 +7,5 @@ media/
 local.py
 __pycache__
 .hypothesis/
+.idea
+dist/
