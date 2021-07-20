@@ -25,10 +25,7 @@ def main():
                     args.append(f"--{key}")
                     args.append(value)
 
-        defaultargs = ["--strict", "--need-app", "--module", "wsgi"]
-
-        print("**********************", *(args + defaultargs), "*******************")
-        pyuwsgi.run(*(args + defaultargs))
+        pyuwsgi.run(*(args + ["--strict", "--need-app", "--module", "wsgi"]))
 
 
 if __name__ == "__main__":
