@@ -1,8 +1,6 @@
 import os
 import sys
 
-import pyuwsgi
-
 
 def main():
     os.environ.setdefault(
@@ -18,7 +16,10 @@ def main():
         # if option.split("=") not in sys.argv:
         # sys.argv.append(option)
         # del sys.argv[0]
-        args = sys.argv[1:]
+        del sys.argv[0]
+        args = sys.argv
+        import pyuwsgi
+
         print("**********************", args, "*******************")
         pyuwsgi.run(*args)
 
