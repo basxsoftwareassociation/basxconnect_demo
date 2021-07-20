@@ -20,7 +20,7 @@ def main():
             args.extend(sys.argv[pos : pos + 2])
 
         print("**********************", args, "*******************")
-        pyuwsgi.run(["--strict", "--nned-app", "--module", "wsgi"])
+        pyuwsgi.run(["--strict", "--need-app", "--module", "wsgi"])
 
 
 if __name__ == "__main__":
