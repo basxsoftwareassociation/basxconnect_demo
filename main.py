@@ -20,7 +20,7 @@ def main():
         if "--ini" in sys.argv:
             config = configparser.ConfigParser()
             config.read(sys.argv[sys.argv.index("--ini") + 1])
-            for key, value in config["uwsgi"]:
+            for key, value in config["uwsgi"].items():
                 args.append(f"--{key}")
                 args.append(value)
 
