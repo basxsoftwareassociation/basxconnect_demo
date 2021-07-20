@@ -12,17 +12,22 @@ def main():
 
         execute_from_command_line(sys.argv[1:])
     else:
+        import configparser
+
         import pyuwsgi
 
-        args = ["--strict", "--need-app", "--module", "wsgi"]
-        skipped_non_options = False
-        for arg in sys.argv:
-            skipped_non_options = skipped_non_options or arg.startswith("--")
-            if skipped_non_options:
-                args.append(arg)
+        args = []
+        if "--ini" in sys.argv:
+            config = configparser.ConfigParser()
+            config.read(sys.argv[sys.argv.index("--ini") + 1])
+            for key, value in config["uwsgi"]:
+                args.append(f"--{key}")
+                args.append(value)
 
-        print("**********************", args, "*******************")
-        pyuwsgi.run(*args)
+        defaultargs = ["--strict", "--need-app", "--module", "wsgi"]
+
+        print("**********************", *(args + defaultargs), "*******************")
+        pyuwsgi.run(*(args + defaultargs))
 
 
 if __name__ == "__main__":
