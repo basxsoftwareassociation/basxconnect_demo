@@ -17,10 +17,10 @@ def main():
         args = []
         if "--ini" in sys.argv:
             pos = sys.argv.index("--ini")
-            args.append(sys.argv[pos : pos + 2])
+            args.extend(sys.argv[pos : pos + 2])
 
         print("**********************", args, "*******************")
-        pyuwsgi.run(args)
+        pyuwsgi.run(*args)
 
 
 if __name__ == "__main__":
