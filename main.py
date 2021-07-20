@@ -21,8 +21,9 @@ def main():
             config = configparser.ConfigParser()
             config.read(sys.argv[sys.argv.index("--ini") + 1])
             for key, value in config["uwsgi"].items():
-                args.append(f"--{key}")
-                args.append(value)
+                if key != "privileged-binary-patch":
+                    args.append(f"--{key}")
+                    args.append(value)
 
         defaultargs = ["--strict", "--need-app", "--module", "wsgi"]
 
