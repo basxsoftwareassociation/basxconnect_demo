@@ -15,12 +15,14 @@ def main():
         execute_from_command_line(sys.argv[1:])
     else:
         # pyuwsgi.run("--strict", "--need-app", "--module", "wsgi", )
-        del sys.argv[0]
+        # del sys.argv[0]
         import subprocess
 
-        subprocess.run(
-            ["uwsgi"] + sys.argv + ["--strict", "--need-app", "--module", "wsgi"]
-        )
+        subprocess.run(["uwsgi", *sys.argv[1:]])
+
+        # subprocess.run(
+        # ["uwsgi"] + sys.argv + ["--strict", "--need-app", "--module", "wsgi"]
+        # )
         # pyuwsgi.run(*sys.arvg, "--strict", "--need-app", "--module", "wsgi")
 
 
