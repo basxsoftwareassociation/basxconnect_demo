@@ -16,14 +16,16 @@ def main():
     else:
         # pyuwsgi.run("--strict", "--need-app", "--module", "wsgi", )
         # del sys.argv[0]
-        import subprocess
+        # import subprocess
 
-        subprocess.run(["uwsgi", *sys.argv[1:]])
+        print(sys.argv)
+        pyuwsgi.run()
+
+        # subprocess.run(["uwsgi", *sys.argv[1:]])
 
         # subprocess.run(
         # ["uwsgi"] + sys.argv + ["--strict", "--need-app", "--module", "wsgi"]
         # )
-        # pyuwsgi.run(*sys.arvg, "--strict", "--need-app", "--module", "wsgi")
 
 
 if __name__ == "__main__":
