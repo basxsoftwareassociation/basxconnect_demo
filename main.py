@@ -18,7 +18,7 @@ def main():
         # if option.split("=") not in sys.argv:
         # sys.argv.append(option)
         # del sys.argv[0]
-        args = sys.argv[2:]
+        args = sys.argv[1:]
         print("**********************", args, "*******************")
         pyuwsgi.run(*args)
 
