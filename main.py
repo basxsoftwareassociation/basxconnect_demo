@@ -14,7 +14,7 @@ def main():
     else:
         import pyuwsgi
 
-        args = []
+        args = ["--master"]
         if "--ini" in sys.argv:
             pos = sys.argv.index("--ini")
             args.extend(sys.argv[pos : pos + 2])
