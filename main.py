@@ -14,13 +14,13 @@ def main():
     else:
         import pyuwsgi
 
-        args = ["--master"]
+        args = ["--module", "uwsgi"]
         if "--ini" in sys.argv:
             pos = sys.argv.index("--ini")
             args.extend(sys.argv[pos : pos + 2])
 
         print("**********************", args, "*******************")
-        pyuwsgi.run(*args)
+        pyuwsgi.run(["--module", "uwsgi"])
 
 
 if __name__ == "__main__":
