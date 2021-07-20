@@ -14,7 +14,7 @@ def main():
 
         execute_from_command_line(sys.argv[1:])
     else:
-        for option in ["--strict", "--need-app", "--module=wsgi"]:
+        for option in ["--module=wsgi"]:
             if option.split("=") not in sys.argv:
                 sys.argv.append(option)
         del sys.argv[0]
