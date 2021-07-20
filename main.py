@@ -14,18 +14,10 @@ def main():
 
         execute_from_command_line(sys.argv[1:])
     else:
-        # pyuwsgi.run("--strict", "--need-app", "--module", "wsgi", )
-        # del sys.argv[0]
-        # import subprocess
-
-        print(sys.argv)
+        for option in ["--strict", "--need-app", "--module=wsgi"]:
+            if option.split("=") not in sys.argv:
+                sys.argv.append(option)
         pyuwsgi.run()
-
-        # subprocess.run(["uwsgi", *sys.argv[1:]])
-
-        # subprocess.run(
-        # ["uwsgi"] + sys.argv + ["--strict", "--need-app", "--module", "wsgi"]
-        # )
 
 
 if __name__ == "__main__":
