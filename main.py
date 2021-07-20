@@ -18,8 +18,8 @@ def main():
         # if option.split("=") not in sys.argv:
         # sys.argv.append(option)
         # del sys.argv[0]
-        print("**********************", sys.argv[1:], "*******************")
-        pyuwsgi.run(sys.argv[1:])
+        print("**********************", sys.argv[2:], "*******************")
+        pyuwsgi.run(sys.argv[2:])
 
 
 if __name__ == "__main__":
