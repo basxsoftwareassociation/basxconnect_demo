@@ -17,6 +17,8 @@ def main():
         for option in ["--strict", "--need-app", "--module=wsgi"]:
             if option.split("=") not in sys.argv:
                 sys.argv.append(option)
+        del sys.argv[0]
+        print("**********************", sys.argv, "*******************")
         pyuwsgi.run()
 
 
