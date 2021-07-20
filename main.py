@@ -14,13 +14,15 @@ def main():
     else:
         import pyuwsgi
 
-        args = ["--module", "uwsgi"]
-        if "--ini" in sys.argv:
-            pos = sys.argv.index("--ini")
-            args.extend(sys.argv[pos : pos + 2])
+        args = ["--strict", "--need-app", "--module", "wsgi"]
+        skipped_non_options = False
+        for arg in sys.argv:
+            skipped_non_options = skipped_non_options or arg.startswith("--")
+            if skipped_non_options:
+                args.append(arg)
 
         print("**********************", args, "*******************")
-        pyuwsgi.run(["--strict", "--need-app", "--module", "wsgi"])
+        pyuwsgi.run(*args)
 
 
 if __name__ == "__main__":
