@@ -11,9 +11,6 @@ SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
-
 try:
     from .local import *  # noqa
 except ImportError:
@@ -35,4 +32,3 @@ ADMINS = [("Admin", "<admin-email-address>"), ]
 
 """
     )
-    raise e
