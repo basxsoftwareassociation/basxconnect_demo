@@ -1,4 +1,4 @@
-from bread.views.system import BreadLoginView
+from bread.views.auth import BreadLoginView
 from django.urls import path
 
 
