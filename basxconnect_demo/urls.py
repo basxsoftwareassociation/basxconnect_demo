@@ -22,7 +22,9 @@ urlpatterns += staticfiles_urlpatterns()
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 else:
-    # in production we want to serve files with nginx, the protectedMedia function is used to check access permission with django and then make an internal redirect to nginx
+    # in production we want to serve files with nginx, the protectedMedia function
+    # is used to check access permission with django and then make an internal
+    # redirect to nginx
     urlpatterns += [
         path(f"{settings.MEDIA_URL[1:]}<path:path>", protectedMedia, name="media")
     ]
