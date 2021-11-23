@@ -14,12 +14,7 @@ from bread.settings.required import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "basxconnect_demo.settings.dev")
-BASE_DIR = os.environ.get(
-    "DJANGO_BASE_DIR", os.path.dirname(os.path.abspath(sys.argv[0]))
-)
-
+BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "l+#35mz2=81hcda7z)$+_4!e^azx40mo83d-s1%0bc4e2jwo@2"
