@@ -14,6 +14,7 @@ urlpatterns = [
     path("", include("demoapp.urls")),
     path("bread/", include("bread.urls")),
     path("basxconnect/", include("basxconnect.core.urls")),
+    path("basxconnect/", include("basxconnect.contributions.urls")),
     path("reports/", include("bread.contrib.reports.urls")),
 ]
 
