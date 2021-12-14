@@ -24,6 +24,7 @@ create_venv:
 	python3 -m venv .venv
 
 pip_packages:
+	${VENV} pip install --upgrade pip
 	${VENV} pip install -r requirements.txt
 
 create_db:
