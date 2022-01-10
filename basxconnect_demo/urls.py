@@ -1,4 +1,5 @@
 from bread.utils.urls import protectedMedia
+from bread.views.error import view400, view403, view404, view500  # noqa
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
