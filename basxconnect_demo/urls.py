@@ -1,11 +1,17 @@
 from bread.utils.urls import protectedMedia
-from bread.views.error import view400, view403, view404, view500  # noqa
+from bread.views.error import view400, view403, view404, view500
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 from django.views.generic import RedirectView
+
+# set default django error views to bread views
+handler400 = view400
+handler403 = view403
+handler404 = view404
+handler500 = view500
 
 urlpatterns = [
     # redirect to home page
