@@ -27,7 +27,7 @@ pip_packages:
 	${VENV} pip install --upgrade pip
 	${VENV} pip install -r requirements.txt
 	# see https://github.com/django-haystack/django-haystack/issues/1826
-	sed -i "s/ungettext/ngettext/g" .venv/lib64/python3.10/site-packages/haystack/admin.py
+	sed -i "s/ungettext/ngettext/g" `find .venv/lib -wholename \*site-packages/haystack/admin.py`
 
 create_db:
 	${VENV} python manage.py migrate
