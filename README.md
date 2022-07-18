@@ -32,4 +32,3 @@ make runserver
 ```
 
 Now you can visit this link: http://127.0.0.1:8000/
-
