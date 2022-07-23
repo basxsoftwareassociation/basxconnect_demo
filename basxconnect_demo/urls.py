@@ -1,5 +1,5 @@
-from bread.utils.urls import protectedMedia
-from bread.views.error import view400, view403, view404, view500
+from basxbread.utils.urls import protectedMedia
+from basxbread.views.error import handler400, handler403, handler404, handler500  # noqa
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -7,22 +7,18 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 from django.views.generic import RedirectView
 
-# set default django error views to bread views
-handler400 = view400
-handler403 = view403
-handler404 = view404
-handler500 = view500
+# set default django error views to basxbread views
 
 urlpatterns = [
     # redirect to home page
     path("", RedirectView.as_view(pattern_name="core.person.browse")),
     path("admin/", admin.site.urls),
-    #  all basx-bread urls
+    #  all basxbread urls
     path("", include("demoapp.urls")),
-    path("bread/", include("bread.urls")),
+    path("basxbread/", include("basxbread.urls")),
     path("basxconnect/", include("basxconnect.core.urls")),
     path("basxconnect/", include("basxconnect.contributions.urls")),
-    path("reports/", include("bread.contrib.reports.urls")),
+    path("reports/", include("basxbread.contrib.reports.urls")),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

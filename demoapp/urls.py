@@ -1,8 +1,8 @@
-from bread.views.auth import BreadLoginView
+from basxbread.views.auth import LoginView
 from django.urls import path
 
 
-class DemoLoginView(BreadLoginView):
+class DemoLoginView(LoginView):
     def get_form(self, *args, **kwargs):
         ret = super().get_form(*args, **kwargs)
         ret.fields["username"].widget.attrs["value"] = "demo"
@@ -10,4 +10,4 @@ class DemoLoginView(BreadLoginView):
         return ret
 
 
-urlpatterns = [path("bread/accounts/login/", DemoLoginView.as_view(), name="login")]
+urlpatterns = [path("basxbread/accounts/login/", DemoLoginView.as_view(), name="login")]
