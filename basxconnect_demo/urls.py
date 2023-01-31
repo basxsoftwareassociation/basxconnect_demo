@@ -1,5 +1,6 @@
 from basxbread.utils.urls import protectedMedia
-from basxbread.views.error import handler400, handler403, handler404, handler500  # noqa
+from basxbread.views.error import (handler400, handler403, handler404,  # noqa
+                                   handler500)
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -17,7 +18,6 @@ urlpatterns = [
     path("", include("demoapp.urls")),
     path("basxbread/", include("basxbread.urls")),
     path("basxconnect/", include("basxconnect.core.urls")),
-    path("basxconnect/", include("basxconnect.contributions.urls")),
     path("reports/", include("basxbread.contrib.reports.urls")),
 ]
 
