@@ -24,9 +24,8 @@ ALLOWED_HOSTS = []
 # BASXBREAD_DEPENDENCIES are imported in the start import at the top
 INSTALLED_APPS = (
     [
-        "basxconnect.core.apps.CoreConfig",
+        "basxconnect.core",
         "django.contrib.admin",
-        "basxconnect.contributions.apps.ContributionsConfig",
         "basxbread.contrib.reports",
         "basxbread.contrib.publicurls",
         "basxbread.contrib.document_templates",
