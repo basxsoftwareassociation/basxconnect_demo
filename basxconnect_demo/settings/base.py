@@ -30,6 +30,8 @@ INSTALLED_APPS = (
         "basxbread.contrib.reports",
         "basxbread.contrib.publicurls",
         "basxbread.contrib.document_templates",
+        "basxbread.contrib.customforms",
+        "basxbread.contrib.triggers",
     ]
     + BASXBREAD_DEPENDENCIES
     + ["demoapp.apps.DemoAppConfig"]
